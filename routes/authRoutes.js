@@ -1,0 +1,20 @@
+const express = require("express");
+const router = express.Router();
+
+const { register, login, googleLogin } = require("../controllers/authController");
+//const authMiddleware = require("../middlewares/authMiddleware");
+
+// public routes
+router.post("/register", register);
+router.post("/login", login);
+router.post("/google", googleLogin);
+
+// // 🔐 protected test route         // TO CHECK THE AUTH ROUTE FOR LOGIN IS WORKING OR NOT
+// router.get("/me", authMiddleware, (req, res) => {
+//   res.json({
+//     message: "Access granted",
+//     user: req.user,
+//   });
+// });
+
+module.exports = router;
